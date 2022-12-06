@@ -1,0 +1,11 @@
+<nav class="d-flex justify-content-between align-items-center">
+  <div><%= link_to "Search", root_path, class: "navbar-branding" %></div>
+  <div>
+    <% if user_signed_in? %>
+      <%= link_to current_user.email, root_path, class: "navbar-links" %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-sign-links" %>
+    <% else %>
+      <%= link_to "Sign In", new_user_session_path, class: "navbar-links" %>
+    <% end %>
+  </div>
+</nav>

@@ -14,4 +14,31 @@
  *= require_self
  */
 
- @import "bootstrap/scss/bootstrap"
+ @import "bootstrap/scss/bootstrap";
+
+.navbar-branding{
+  font-size: 3em;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav{
+  background-color: #202324;
+}
+
+a:visited {
+  color: white;
+}
+
+.navbar-sign-links{
+  color: white;
+  border: 2px solid red;
+  padding: 2px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.navbar-links{
+  text-decoration: none;
+}
