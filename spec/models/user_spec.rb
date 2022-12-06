@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
     context "when password is blank" do 
       let(:user) { User.new()}
       it "User password can not be blank" do 
-        user.password_digest = nil,
+        user.password = nil,
         user.valid?
         expect(user.errors.full_messages).to include("Password can't be blank")
       end 
