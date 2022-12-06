@@ -6,12 +6,23 @@
       <% end %>
     </div>
   </div>
-  <div class="articles-section">
-    <h1>Articles</h1>
-    <div class="article-list">
-      <%= render "articles/article_list"%>
+
+  <div>
+    <div class="row">
+      <div class="col-md-8">
+        <h1>Articles</h1>
+        <div class="article-list">
+          <%= render "articles/article_list"%>
+        </div>
+      </div>
+      <div class="col-md-4 saved-searches">
+        <h2>Saved Searches</h2>
+        <%= render "articles/saved_searches" %>
+      </div>
     </div>
   </div>
+
+  <br>
+  <%= link_to 'New Article', new_article_path %>
 </div>
-<br>
-<%= link_to 'New Article', new_article_path %>
+
