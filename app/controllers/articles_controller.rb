@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
-    @saved_searches = current_user.saved_searches
     @articles = Article.all
   end
 
