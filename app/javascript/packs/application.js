@@ -19,9 +19,18 @@ ActiveStorage.start()
 $(document).on('turbolinks:load', function() {
   $("#query").on("keyup", function(){
     var action = $("#search-form").attr("action")
-    var path = `${action}?query=${$(this).val()}`
+    var path = `${action}?query=${$(this).val()}&save=false`
     // $("#search-form").submit()
     console.log(path)
     $.get(path)
+  })
+
+  $("#query").on("mouseleave", function(){
+    var action = $("#search-form").attr("action")
+    var path = `${action}?query=${$(this).val()}&save=true`
+    console.log(path)
+    $.get(path)
+
+
   })
 })
