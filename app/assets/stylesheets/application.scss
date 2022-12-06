@@ -47,7 +47,16 @@ a:visited {
 .genereal-btn-styles{
   color: whitesmoke;
   background: rgb(36, 35, 35);
-  padding: 5px;
+  padding: 3px;
   text-decoration: none;
+  font-size: 0.7em;
+}
+
+.border-bottom-one{
+  border-bottom: 2px solid black;
+}
+
+.article-list-title{
+  font-size: 1.5em;
 }
 
