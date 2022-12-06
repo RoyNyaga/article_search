@@ -4,7 +4,7 @@ class SearchController < ApplicationController
     @articles = Article.where("lower(title) like ?", "%#{params[:query].downcase}%")
     @saved_searches = current_user.saved_searches
     if should_save?
-      SavedSearch.create(user_id: current_user.id, search_params: params[:query].downcase) if current_user.saved_search_exist?(params[:query].downcase)
+      SavedSearch.create(user_id: current_user.id, search_params: params[:query].downcase) unless current_user.saved_search_exist?(params[:query].downcase)
     end
     
     respond_to do |format| 
