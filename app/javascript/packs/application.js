@@ -28,9 +28,7 @@ $(document).on('turbolinks:load', function() {
   $("#query").on("mouseleave", function(){
     var action = $("#search-form").attr("action")
     var path = `${action}?query=${$(this).val()}&save=true`
-    console.log(path)
+    console.log("this is the last path: ", path)
     $.get(path)
-
-
   })
 })

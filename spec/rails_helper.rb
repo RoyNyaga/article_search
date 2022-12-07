@@ -6,7 +6,32 @@ require_relative '../config/environment'
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'capybara/rails'
+require "devise"
 # Add additional requires below this line. Rails is not loaded until this point!
+## set up client
+# require 'selenium-webdriver'
+# client = Selenium::WebDriver.for :chrome # see also following link.
+
+
+## set up options
+# options = Selenium::WebDriver::Chrome::Options.new.tap do |opts|
+#   opts.args << '--headless'
+# end
+
+# Capybara.register_driver :headless_chrome do |app|
+#   Capybara::Selenium::Driver.new(
+#     app,
+#     browser: :chrome,
+#     http_client: client,
+#     options: options)
+# end
+
+# configure
+# Capybara.configure do |config|
+#   config.ignore_hidden_elements = true
+#   config.default_max_wait_time = 3 #sec
+# end
+
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -68,4 +93,16 @@ RSpec.configure do |config|
   config.before(:each, js: true) { DatabaseCleaner.strategy = :truncation }	
   config.before(:each) { DatabaseCleaner.start }
   config.after(:each) { DatabaseCleaner.clean }
+
+  [:controller, :view, :request].each do |type|
+    config.include ::Rails::Controller::Testing::TestProcess, :type => type
+    config.include ::Rails::Controller::Testing::TemplateAssertions, :type => type
+    config.include ::Rails::Controller::Testing::Integration, :type => type
+  end
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Warden::Test::Helpers
+
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+
 end
