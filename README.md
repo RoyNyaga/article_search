@@ -1,6 +1,8 @@
 # README
 #### You can access the live code by clicking on this [link](https://safe-woodland-17111.herokuapp.com/)
 
+<img src="https://res.cloudinary.com/it-s-tech/image/upload/v1670415331/Screenshot_2022-12-07_at_13.14.10_vx7x4f.png">
+
 ### About this app
 This app has the following functionalities:
 - Authentication
