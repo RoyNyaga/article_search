@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <% current_user.saved_searches.each do |saved_search| %>
-    <p><%= saved_search.search_params %></p>
+    <p class="saved-search"><%= saved_search.search_params %></p>
   <% end %>
 <% else %>
   <div>

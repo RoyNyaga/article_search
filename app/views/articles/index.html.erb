@@ -2,7 +2,14 @@
   <div class="row search-form-div mt-3 mb-5">
     <div class="col-md-4 mx-auto">
       <%= form_with url: search_path, method: :get, remote: false, html: {id: "search-form"} do |form| %>
-        <%= form.text_field :query, class: "form-control" %>
+        <div class="row field-wrapper">
+          <div class="col-md-11">
+            <%= form.text_field :query, class: "form-control" %>
+          </div>
+          <div class="col-md-1">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
@@ -15,9 +22,11 @@
           <%= render "articles/article_list"%>
         </div>
       </div>
-      <div class="col-md-4 saved-searches">
-        <h2>Saved Searches</h2>
-        <%= render "articles/saved_searches" %>
+      <div class="col-md-4">
+        <h2 class="text-center">Saved Searches</h2>
+        <div class="saved-searches">
+          <%= render "articles/saved_searches" %>
+        </div>
       </div>
     </div>
   </div>
